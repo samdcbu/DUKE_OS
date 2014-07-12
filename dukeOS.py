@@ -13,7 +13,7 @@ print '                                            '
 print '           Type help for help               '
 #Big While loop
 while 1 == 1:
-	command = raw_input('>>>')
+	command = raw_input('>>> ')
 	command = command.lower()
 	#DukeOS help menu
 	if command == 'help':
@@ -26,7 +26,7 @@ while 1 == 1:
 		print "Adventure!: brings you to a non-generic and creative RPG"
 	#RPG enter command
 	elif command == "adventure!":
-		print"Welcome to Enemies and player, the most generic RPG ever."
+		print "Welcome to Enemies and player, the most generic RPG ever."
 		print "Help for help"
 		#Initial player stats
 		playerhp = 20
@@ -169,9 +169,9 @@ while 1 == 1:
 			#Leveling up system
 			if playerxp > playerxpt:
 				print "Level up!"
-				pickstat = raw_input("Would you like to improve defense, attack or magic?").lower()
+				pickstat = raw_input("Would you like to improve defense, attack or magic? ").lower()
 				while pickstat != "magic" and pickstat != "attack" and pickstat != "magic":
-					pickstat = raw_input("Invalid please pick defense, attack or magic.")
+					pickstat = raw_input("Invalid please pick defense, attack or magic. ")
 				if pickstat == "magic":
 					print "MAGIC UPGRADED!"
 					playerxpmag += 1
@@ -269,9 +269,9 @@ while 1 == 1:
 			playerhp = playermaxhp
 			if playerxp > playerxpt:
 				print "Level up!"
-				pickstat = raw_input("Would you like to improve defense, attack or magic?").lower()
+				pickstat = raw_input("Would you like to improve defense, attack or magic? ").lower()
 				while pickstat != "magic" and pickstat != "attack" and pickstat != "magic":
-					pickstat = raw_input("Invalid please pick defense, attack or magic.")
+					pickstat = raw_input("Invalid please pick defense, attack or magic. ")
 				if pickstat == "magic":
 					print "MAGIC UPGRADED!"
 					playerxpmag += 1
@@ -368,9 +368,9 @@ while 1 == 1:
 			playerhp = playermaxhp
 			if playerxp > playerxpt:
 				print "Level up!"
-				pickstat = raw_input("Would you like to improve defense, attack or magic?").lower()
+				pickstat = raw_input("Would you like to improve defense, attack or magic? ").lower()
 				while pickstat != "defense" and pickstat != "attack" and pickstat != "magic":
-					pickstat = raw_input("Invalid please pick defense, attack or magic.")
+					pickstat = raw_input("Invalid please pick defense, attack or magic. ")
 				if pickstat == "magic":
 					print "MAGIC UPGRADED!"
 					playerxpmag += 1
@@ -522,11 +522,11 @@ while 1 == 1:
 
 		#Directs to functions
 		while 1==1:
-			do = raw_input("What do?").lower()
+			do = raw_input("What do? ").lower()
 			if do == "help":
 				helpmenu()
 			elif do == "adventure":
-				whatlevel = raw_input("What level would you like. 1,2, or 3?")
+				whatlevel = raw_input("What level would you like. 1,2, or 3? ")
 				if whatlevel =="1":
 					encounter()
 				if whatlevel =="2":
@@ -716,8 +716,8 @@ while 1 == 1:
 	#The download command
 	elif command == 'start_download':
 		#Just no affect inputs and waits
-		noreply == raw_input('Give DUKEOS access to the internet?\n>>>')
-		noreply == raw_input('Thank you for access to the internet, allow DUKEOS to start_download\n>>>')
+		noreply == raw_input('Give DUKEOS access to the internet?\n>>> ')
+		noreply == raw_input('Thank you for access to the internet, allow DUKEOS to start_download\n>>> ')
 		print 'Download starting, please wait...'
 		time.sleep(5)
 		print "0%"
@@ -785,18 +785,18 @@ while 1 == 1:
 		print '104%'
 		time.sleep(1)
 		print '106%'
-		noreply = raw_input('application MORERAM.exe has finished downloading, execute it?\n>>>')
-		noreply = raw_input('Wait really? \n>>>')
+		noreply = raw_input('application MORERAM.exe has finished downloading, execute it?\n>>> ')
+		noreply = raw_input('Wait really? \n>>> ')
 		print 'Deleting from hard drive randomly to make space for more ram in computer'
 		print 'randomly selecting file...'
 		time.sleep(7)
-		noreply = raw_input('file selected: wierd secrets, delete this file?\n>>>')
+		noreply = raw_input('file selected: wierd secrets, delete this file?\n>>> ')
 		print "uploading file to internet: wierd secrets"
 		print '100%'
 		time.sleep(2)
 		print 'wow you\'re upload speed is so much quicker than you\'re download speed'
 		time.sleep(1)
-		noreply = raw_input('finish installing MORERAM.exe?\n>>>')
+		noreply = raw_input('finish installing MORERAM.exe?\n>>> ')
 		print "installation begining"
 		time.sleep(2)
 		print 'computer evaluation begining to determine correct ram placement'
@@ -1271,7 +1271,7 @@ while 1 == 1:
 		            print "\"RE:RE:thought you'd get a kick out of this ;))\"\nre"
 
 
-		        upgradebuy = (raw_input("So whatdya want?")).lower()
+		        upgradebuy = (raw_input("So whatdya want? ")).lower()
 		        
 		        #Upgrades use a true false method of determining ability to buy, then stores a one or a zero for the saving and loading function
 
