@@ -4,9 +4,9 @@ import cmdClass
 def commands():
 	return [DownloadCmd(), AdvCmd(), InternetCmd(), BattleCmd(), CookieCmd(), InfoCmd()]
 
-class DownloadCmd(cmdClass.DukeOSCMD):
-	self.name = "start_download"
-	self.dscp = "will begin downloading fun files to your hard drive"
+class DownloadCmd(cmdClass.DukeOSCmd):
+	name = "start_download"
+	dscp = "will begin downloading fun files to your hard drive"
 
 	def execute(self, args):
 		#Just no effect inputs and waits
@@ -112,9 +112,9 @@ class DownloadCmd(cmdClass.DukeOSCMD):
 		print 'Congratulations, more RAM has been installed.'
 		return 0
 
-class AdvCmd(cmdClass.DukeOSCMD):
-	self.name = "adventure"
-	self.dscp = "brings you to a non-generic and creative RPG"
+class AdvCmd(cmdClass.DukeOSCmd):
+	name = "adventure"
+	dscp = "brings you to a non-generic and creative RPG"
 
 	def execute(self, args):
 		print "Welcome to Enemies and player, the most generic RPG ever."
@@ -631,9 +631,9 @@ class AdvCmd(cmdClass.DukeOSCMD):
 			elif do == "get me outta this mess":
 				return 0
 
-class InternetCmd(cmdClass.DukeOSCMD):
-	self.name = "ride on the internet"
-	self.dscp = "On your mark, get set, we're riding on the internet"
+class InternetCmd(cmdClass.DukeOSCmd):
+	name = "ride on the internet"
+	dscp = "On your mark, get set, we're riding on the internet"
 
 	def execute(self, args):
 		print "Welcome to THE INTERNET. Current popular sites:"
@@ -745,9 +745,9 @@ class InternetCmd(cmdClass.DukeOSCMD):
 		return 0
 
 
-class BattleCmd(cmdClass.DukeOSCMD):
-	self.name = "battle"
-	self.dscp = "doesn't do much..."
+class BattleCmd(cmdClass.DukeOSCmd):
+	name = "battle"
+	dscp = "doesn't do much..."
 
 	def execute(self, args):
 		#Health sets
@@ -814,9 +814,9 @@ class BattleCmd(cmdClass.DukeOSCMD):
 		return 0
 
 
-class CookieCmd(cmdClass.DukeOSCMD):
-	self.name = "click cookies"
-	self.dscp = "brings you to cookie clicker"
+class CookieCmd(cmdClass.DukeOSCmd):
+	name = "click cookies"
+	dscp = "brings you to cookie clicker"
 
 	def execute(self, args):
 		#Default values set
@@ -1318,9 +1318,9 @@ class CookieCmd(cmdClass.DukeOSCMD):
 		return 0
 
 
-class InfoCmd(cmdClass.DukeOSCMD):
-	self.name = "why"
-	self.dscp = "brings up a detailed history of DUKEOS and a FAQ"
+class InfoCmd(cmdClass.DukeOSCmd):
+	name = "why"
+	dscp = "brings up a detailed history of DUKEOS and a FAQ"
 
 	def execute(self, args):
 		print 'DUKEOS is founded on the principals of providing a quality Operating System for all people, for only $999 a month.'

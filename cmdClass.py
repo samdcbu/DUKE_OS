@@ -1,6 +1,6 @@
 class DukeOSCmd():
-	self.name = "" #the string used to execute the command. Not defined in __init__ so can be accessed w/out making an instance
-	self.dscp = "" #a description of the command used in the help menu
+	name = "" #the string used to execute the command. Not defined in __init__ so can be accessed w/out making an instance
+	dscp = "" #a description of the command used in the help menu
 
 	def __init__(self):
 		pass
@@ -16,8 +16,8 @@ class DukeOSCmd():
 #>>> example self_detonate other stuff
 #CommandError: command returned other than 0 (DukeOS will have handling for this.)
 class SampleCmd(DukeOSCmd):
-	self.name = "example"
-	self.dscp = "this is an example command"
+	name = "example"
+	dscp = "this is an example command"
 
 	def execute(self, args):
 		if args and args[0] == "self_detonate":

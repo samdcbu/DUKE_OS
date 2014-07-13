@@ -4,22 +4,26 @@ import os.path
 import pkgutil
 import cmdClass
 import commands
+import sys
 noreply = ''
 
 #function to load in all "commands"
-def load_commands(cmd_pack):
+def load_commands(cmd_pack_name):
+	cmd_pack = sys.modules[cmd_pack_name]
 	cmds = []
-	for cmdMod in pkgutil.iter_modules([os.path.dirname(cmd_pack.__file__)]):
-		cmds += cmdMod.commands() #returns all commands that the module defines
+	for _, cmdMod, _ in pkgutil.iter_modules([os.path.dirname(cmd_pack.__file__)]):
+		cmdMod = cmd_pack_name + "." + cmdMod
+		__import__(cmdMod)
+		cmds += sys.modules[cmdMod].commands() #returns all commands that the module defines
 	return cmds #
 
 def get_command(name, cmdList):
 	for cmd in cmdList:
-		if name.lower().startswith(name + " "):
+		if name.lower().startswith(cmd.name.lower() + " ") or name.lower() == cmd.name.lower():
 			return cmd
 	return UnknownCmd()
 
-class UnknownCmd(cmdClass.DukeOSCMD):
+class UnknownCmd(cmdClass.DukeOSCmd):
 	def execute(self, args):
 		print 'processing'
 		time.sleep(10)
@@ -30,9 +34,9 @@ class UnknownCmd(cmdClass.DukeOSCMD):
 		print 'result = dirt'
 		return 0
 
-class HelpCmd(cmdClass.DukeOSCMD):
-	self.name = "help"
-	self.dscp = "brings up the help menu"
+class HelpCmd(cmdClass.DukeOSCmd):
+	name = "help"
+	dscp = "brings up the help menu"
 
 	def __init__(self, cmdList):
 		self.cmdList = cmdList
@@ -40,7 +44,7 @@ class HelpCmd(cmdClass.DukeOSCMD):
 	def execute(self, args):
 		print "Welcome to the debut of DUKEOS, here are some helpful commands"
 
-		for cmd in cmdList:
+		for cmd in self.cmdList:
 			print cmd.name + ": " + cmd.dscp
 
 def logo():
@@ -57,7 +61,7 @@ def logo():
 
 class DukeOS():
 	def __init__(self):
-		self.cmds = load_commands(commands)
+		self.cmds = load_commands("commands")
 		self.cmds.append(HelpCmd(self.cmds))
 
 	def mainLoop(self):
