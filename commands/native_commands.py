@@ -6,7 +6,7 @@ import sys
 
 #returns a list of commands contained by this module
 def commands():
-	return [DownloadCmd(), AdvCmd(), InternetCmd(), BattleCmd(), CookieCmd(), InfoCmd()]
+	return [DownloadCmd(), AdvCmd(), InternetCmd(), BattleCmd(), CookieCmd(), InfoCmd(), QuitCmd()]
 
 class DownloadCmd(cmdClass.DukeOSCmd):
 	name = "start_download"
