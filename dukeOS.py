@@ -74,5 +74,9 @@ class DukeOS():
 			cmdObj = get_command(command, self.cmds)
 			x = cmdObj.execute(command.split()[1:])
 
+			if x == "exit":
+				print "DukeOS has been quit by command: " + cmdObj.name
+				sys.exit()
+
 OS = DukeOS()
 OS.mainLoop()

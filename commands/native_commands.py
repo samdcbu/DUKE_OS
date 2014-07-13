@@ -1331,3 +1331,10 @@ class InfoCmd(cmdClass.DukeOSCmd):
 		print 'DUKEOS was created back in 7/2/14, when Duke Johnson decided he was fed up with the currenet Operating systems, windows, OSX, and linux.'
 		print 'Decieding none of these were quality Duke decided it was time to serve the undereserved majority of people and provide the best Operating system possible.'
 		return 0
+
+class QuitCmd(cmdClass.DukeOSCmd):
+	name = "quit"
+	dscp = "quits DukeOS"
+
+	def execute(self, args):
+		return "exit"
