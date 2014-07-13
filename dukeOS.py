@@ -1,17 +1,15 @@
 import time
 import random
+import os.path
+import pkgutil
 noreply = ''
 
 #function to load in all "commands"
-def load_commands(cmd_path):
+def load_commands(cmd_pack):
 	cmds = []
-	for file_name in os.listdir(cmd_path):
-		if file_name.startswith('.') or not file_name.ends_with('.py'):
-			continue
-		module_name = file_name[:-3]
-		module = __import__(module_name)
-		cmds.append(module)
-	return cmds
+	for cmdMod in pkgutil.iter_modules([os.path.dirname(cmd_pack.__file__)]):
+		cmds += cmdMod.commands() #returns all commands that the module defines
+	return cmds #
 
 #The DukeOS logo
 print '  _____  _    _ _  ________    ____   _____ '

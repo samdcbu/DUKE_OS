@@ -17,7 +17,7 @@ class SampleCmd(DukeOSCmd):
 		self.name = "example"
 
 	def execute(self, args):
-		if args and args[0] = "self_detonate":
+		if args and args[0] == "self_detonate":
 			return "DukeOS has self-detonated." #execute didn't finish successfully, return error message
 		print "this is an example command. Here are the arguments passed: ", args
 		return 0 #executed successfully
