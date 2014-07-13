@@ -1,4 +1,8 @@
 import cmdClass
+import random
+import time
+import os
+import sys
 
 #returns a list of commands contained by this module
 def commands():
