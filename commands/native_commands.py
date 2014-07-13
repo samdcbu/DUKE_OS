@@ -1,5 +1,9 @@
 import cmdClass
 
+#returns a list of commands contained by this module
+def commands():
+	return [DownloadCmd(), AdvCmd(), InternetCmd(), BattleCmd(), CookieCmd(), InfoCmd()]
+
 class DownloadCmd(cmdClass.DukeOSCMD):
 	self.name = "start_download"
 	self.dscp = "will begin downloading fun files to your hard drive"
