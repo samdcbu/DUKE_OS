@@ -824,70 +824,48 @@ class CookieCmd(cmdClass.DukeOSCmd):
 
 	def execute(self, args):
 		#Default values set
-		starttime = time.clock()
-		play = True
-		cookies = 0
-		cursors = 0
-		grandmas = 0
-		farms = 0
-		factories = 0
-		mines = 0
-		shipments = 0
-		alchemy_labs = 0
-		portals = 0
-		time_machines = 0
-		antimatter_condensers = 0
-		prisms = 0
+		self.starttime = time.clock()
+		self.play = True
+		self.cookies = 0
+		self.cursors = 0
+		self.grandmas = 0
+		self.farms = 0
+		self.factories = 0
+		self.mines = 0
+		self.shipments = 0
+		self.alchemy_labs = 0
+		self.portals = 0
+		self.time_machines = 0
+		self.antimatter_condensers = 0
+		self.prisms = 0
 
-		clickcps = 1
-		cursorcps = 0.1
-		grandmacps = 0.5
-		farmcps = 4
-		factorycps = 10
-		minecps = 40
-		shipmentcps = 100
-		alchemycps = 400
-		portalcps = 6666
-		timecps = 98765
-		anticps = 999999
-		prismcps = 10000000
+		self.clickcps = 1
+		self.cursorcps = 0.1
+		self.grandmacps = 0.5
+		self.farmcps = 4
+		self.factorycps = 10
+		self.minecps = 40
+		self.shipmentcps = 100
+		self.alchemycps = 400
+		self.portalcps = 6666
+		self.timecps = 98765
+		self.anticps = 999999
+		self.prismcps = 10000000
 
 
 		#Upgrade conditions and stuff
-		Reinforced_Index_Finger = False
-		Is_Reinforced_Index_Finger = 0
-		Carpal_Tunnel = False
-		Is_Carpal_Tunnel = 0
-		ambidextrous = False
-		Is_ambidextrous = 0
-		forwards = False
-		Is_forwards = 0
-		#Cashin updates cookie amounts by time spent not cashing in
-		def cashin(cursors,grandmas,farms,factories,mines,shipments,alchemy_labs,portals,time_machines,antimatter_condnsers,prisms):
-			endtime = time.clock()
-			global starttime
-			cookietime = endtime - starttime
-			global cookies
-			print "Cookies Earned:",(cursors*cursorcps*cookietime)+(grandmas*grandmacps*cookietime)+(farms*farmcps*cookietime)+(factories*factorycps*cookietime)+(mines*minecps*cookietime)+(shipments*shipmentcps*cookietime)+(alchemy_labs*alchemycps*cookietime)+(portals*portalcps*cookietime)+(time_machines*timecps*cookietime)+(antimatter_condensers*anticps*cookietime)+(prisms*prismcps*cookietime)
-			cookies += (cursors*cursorcps*cookietime)+(grandmas*grandmacps*cookietime)+(farms*farmcps*cookietime)+(factories*factorycps*cookietime)+(mines*minecps*cookietime)+(shipments*shipmentcps*cookietime)+(alchemy_labs*alchemycps*cookietime)+(portals*portalcps*cookietime)+(time_machines*timecps*cookietime)+(antimatter_condensers*anticps*cookietime)+(prisms*prismcps*cookietime)
-			starttime = time.clock()
+		self.Reinforced_Index_Finger = False
+		self.Is_Reinforced_Index_Finger = 0
+		self.Carpal_Tunnel = False
+		self.Is_Carpal_Tunnel = 0
+		self.ambidextrous = False
+		self.Is_ambidextrous = 0
+		self.forwards = False
+		self.Is_forwards = 0
 
-
-		#The cookie clicker help menu
-		def menu():
-			print "\n\nWelcome to cookie clicker. Here's a list of commands"
-			print "click: gives you",clickcps,"cookie"
-			print "cashin: updates cookies"
-			print "buy: brings you to the store"
-			print "evaluate: let's you see your total building numbers, costs for buildings and cps for buildings"
-			print "stop the madness: stops the game"
-			print "upgrade: a different store for upgrades"
-			print "help: bring up this menu"
-			print "save: save the game"
-			print "load: load the game"
 		menu()
 		#Actual playing stuff
-		while play == True:
+		while self.play == True:
 			action = raw_input("\nWhat would you like to do?\n").lower()
 
 
@@ -895,54 +873,54 @@ class CookieCmd(cmdClass.DukeOSCmd):
 			if action == "save":
 				#Basically opens a text file and writes the values in order
 				f= open('cookiesave.txt','w')
-				cashin(cursors,grandmas,farms,factories,mines,shipments,alchemy_labs,portals,time_machines,antimatter_condensers,prisms)
-				s = str(cookies)+("\n")
+				cashin(self.cursors,self.grandmas,self.farms,self.factories,self.mines,self.shipments,self.alchemy_labs,self.portals,self.time_machines,self.antimatter_condensers,self.prisms)
+				s = str(self.cookies)+("\n")
 				f.write(s)
 
-				s = str(cursors)+("\n")
+				s = str(self.cursors)+("\n")
 				f.write(s)
 
-				s = str(grandmas)+("\n")
+				s = str(self.grandmas)+("\n")
 				f.write(s)
 
-				s = str(farms)+("\n")
+				s = str(self.farms)+("\n")
 				f.write(s)
 				
-				s = str(factories)+("\n")
+				s = str(self.factories)+("\n")
 				f. write(s)
 
-				s = str(mines)+("\n")
+				s = str(self.mines)+("\n")
 				f.write(s)
 
-				s = str(shipments)+("\n")
+				s = str(self.shipments)+("\n")
 				f.write(s)
 
-				s = str(alchemy_labs)+("\n")
+				s = str(self.alchemy_labs)+("\n")
 				f.write(s)
 
-				s =str(portals)+("\n")
+				s =str(self.portals)+("\n")
 				f.write(s)
 
-				s = str(time_machines)+("\n")
+				s = str(self.time_machines)+("\n")
 				f.write(s)
 
-				s = str(antimatter_condensers)+("\n")
+				s = str(self.antimatter_condensers)+("\n")
 				f.write(s)
 
-				s = str(prisms)+("\n")
+				s = str(self.prisms)+("\n")
 				f.write(s)
 
-				s = str(Is_Reinforced_Index_Finger)+("\n")
+				s = str(self.Is_Reinforced_Index_Finger)+("\n")
 				f.write(s)
 
 
-				s = str(Is_Carpal_Tunnel)+("\n")
+				s = str(self.Is_Carpal_Tunnel)+("\n")
 				f.write(s)
 
-				s= str(Is_ambidextrous)+("\n")
+				s= str(self.Is_ambidextrous)+("\n")
 				f.write(s)
 
-				s = str(Is_forwards)+("\n")
+				s = str(self.Is_forwards)+("\n")
 				f.write(s)
 
 				f.close()
@@ -953,142 +931,142 @@ class CookieCmd(cmdClass.DukeOSCmd):
 				f = open('cookiesave.txt','r')
 				a = f.readline()
 				a = a.rstrip('\n')
-				cookies = float(a)
+				self.cookies = float(a)
 
 				a = f.readline()
 				a = a.rstrip('\n')
-				cursors = int (a)
-
-
-				a = f.readline()
-				a = a.rstrip('\n')
-				grandmas = int (a)
+				self.cursors = int (a)
 
 
 				a = f.readline()
 				a = a.rstrip('\n')
-				farms = int (a)
+				self.grandmas = int (a)
 
 
 				a = f.readline()
 				a = a.rstrip('\n')
-				factories = int (a)
+				self.farms = int (a)
 
 
 				a = f.readline()
 				a = a.rstrip('\n')
-				mines = int (a)
+				self.factories = int (a)
 
 
 				a = f.readline()
 				a = a.rstrip('\n')
-				shipments = int (a)
+				self.mines = int (a)
 
 
 				a = f.readline()
 				a = a.rstrip('\n')
-				alchemy_labs = int (a)
+				self.shipments = int (a)
 
 
 				a = f.readline()
 				a = a.rstrip('\n')
-				portals = int (a)
+				self.alchemy_labs = int (a)
 
 
 				a = f.readline()
 				a = a.rstrip('\n')
-				antimatter_condensers = int (a)
+				self.portals = int (a)
 
 
 				a = f.readline()
 				a = a.rstrip('\n')
-				prisms = int (a)
+				self.antimatter_condensers = int (a)
 
 
 				a = f.readline()
 				a = a.rstrip('\n')
-				a = int(a)
-				if a == 1:
-					clickcps+=1
-					cursorcps+=0.1
-
-				a = f.readline()
-				a = a.rstrip('\n')
-				a = int(a)
-				if a == 1:
-					clickcps*=2
-					cursorcps*=2
-
-				a = f.readline()
-				a = a.rstrip('\n')
-				a = int(a)
-				if a == 1:
-					clickcps *=2
-					cursorcps *=2
+				self.prisms = int (a)
 
 
 				a = f.readline()
 				a = a.rstrip('\n')
 				a = int(a)
 				if a == 1:
-					grandmacps += 0.3
+					self.clickcps+=1
+					self.cursorcps+=0.1
+
+				a = f.readline()
+				a = a.rstrip('\n')
+				a = int(a)
+				if a == 1:
+					self.clickcps*=2
+					self.cursorcps*=2
+
+				a = f.readline()
+				a = a.rstrip('\n')
+				a = int(a)
+				if a == 1:
+					self.clickcps *=2
+					self.cursorcps *=2
+
+
+				a = f.readline()
+				a = a.rstrip('\n')
+				a = int(a)
+				if a == 1:
+					self.grandmacps += 0.3
 				print"LOADED!"
 
 			#cookie click action, gives you a cookie(or a couple more with upgrades)
 			if action == "click":
-				cookies += clickcps
-				print "Cookie Total:",cookies
+				self.cookies += self.clickcps
+				print "Cookie Total:", self.cookies
 			#Let's you see current numbers of buildings 
 			if action == "evaluate":
-				print "\nCursors:",cursors
-				print "CPS per cursor:",cursorcps
-				print "Next cursor costs:",cursorcost,"cookies\n"
-				if cursors > 0:
-					print "Grandmas:",grandmas
-					print "Next grandma costs:",grandmacost,"cookies\n"
-					print "CPS per grandma:",grandmacps
-				if grandmas > 0:
-					print "Factories:",factories
-					print "CPS per factory:",factorycps
-					print "Next factory costs:",factorycost,"cookies\n"
+				print "\nCursors:",self.cursors
+				print "CPS per cursor:",self.cursorcps
+				print "Next cursor costs:",self.cursorcost,"cookies\n"
+				if self.cursors > 0:
+					print "Grandmas:",self.grandmas
+					print "Next grandma costs:",self.grandmacost,"cookies\n"
+					print "CPS per grandma:",self.grandmacps
+				if self.grandmas > 0:
+					print "Factories:",self.factories
+					print "CPS per factory:",self.factorycps
+					print "Next factory costs:",self.factorycost,"cookies\n"
 
-				if factories > 0:
-					print "Mines:",mines
-					print "CPS per mine",minecps
-					print "Next mine costs:",minecost,"cookies\n"
-				if mines >0:
-					print "Shipments:",shipments
-					print "CPS per shipment:",shipmentcps
-					print "Next shipment costs:",shipmentcost,"cookies\n"
-				if shipments>0:
-					print "Alchemy Labs:",alchemy_labs
-					print "CPS per alchemy lab:",alchemycps
-					print "Next Alchemy Lab costs:",alchemycost,"cookies\n"
-				if alchemy_labs>0:
-					print "Portals:",portals
-					print "CPS per portal:",portalcps
-					print "Next portal costs:",portalcost,"cookies\n"
-				if portals >0:
-					print "Antimatter Condensers:",antimatter_condensers
-					print "CPS per Antimatter Condenser",anticps
-					print "Next Antimatter Condenser:",anticost,"cookies\n"
-				if antimatter_condensers>0:
-					print "Prisms:",prisms
-					print "CPS per prism:",prismcps
-					print "Next Prism costs:",prismcost,"cookies\n"
+				if self.factories > 0:
+					print "Mines:",self.mines
+					print "CPS per mine",self.minecps
+					print "Next mine costs:",self.minecost,"cookies\n"
+				if self.mines >0:
+					print "Shipments:",self.shipments
+					print "CPS per shipment:",self.shipmentcps
+					print "Next shipment costs:",self.shipmentcost,"cookies\n"
+				if self.shipments>0:
+					print "Alchemy Labs:",self.alchemy_labs
+					print "CPS per alchemy lab:",self.alchemycps
+					print "Next Alchemy Lab costs:",self.alchemycost,"cookies\n"
+				if self.alchemy_labs>0:
+					print "Portals:",self.portals
+					print "CPS per portal:",self.portalcps
+					print "Next portal costs:",self.portalcost,"cookies\n"
+				if self.portals >0:
+					print "Antimatter Condensers:",self.antimatter_condensers
+					print "CPS per Antimatter Condenser",self.anticps
+					print "Next Antimatter Condenser:",self.anticost,"cookies\n"
+				if self.antimatter_condensers>0:
+					print "Prisms:",self.prisms
+					print "CPS per prism:",self.prismcps
+					print "Next Prism costs:",self.prismcost,"cookies\n"
 
 			#cost increasing
-			cursorcost= 15*(1.15**cursors)
-			grandmacost= 100*(1.15**grandmas)
-			farmcost = 500*(1.15**farms)
-			factorycost= 3000*(1.15**factories)
-			minecost = 10000*(1.15**mines)
-			shipmentcost = 40000*(1.15**shipments)
-			alchemycost = 200000*(1.15**alchemy_labs)
-			portalcost = 1666666*(1.15**portals)
-			timecost = 123456789*(1.15**time_machines)
-			anticost = 3999999999*(1.15**antimatter_condensers)
-			prismcost = 75000000000*(1.15**prisms)
+			self.cursorcost= 15*(1.15**self.cursors)
+			self.grandmacost= 100*(1.15**self.grandmas)
+			self.farmcost = 500*(1.15**self.farms)
+			self.factorycost= 3000*(1.15**self.factories)
+			self.minecost = 10000*(1.15**self.mines)
+			self.shipmentcost = 40000*(1.15**self.shipments)
+			self.alchemycost = 200000*(1.15**self.alchemy_labs)
+			self.portalcost = 1666666*(1.15**self.portals)
+			self.timecost = 123456789*(1.15**self.time_machines)
+			self.anticost = 3999999999*(1.15**self.antimatter_condensers)
+			self.prismcost = 75000000000*(1.15**self.prisms)
 
 
 
@@ -1096,46 +1074,46 @@ class CookieCmd(cmdClass.DukeOSCmd):
 
 			#Calls the help menu
 			if action == "help":
-				menu()
+				self.menu()
 			#Gets you out of cookie clicker
 			if action == "stop the madness":
-				play = False
+				self.play = False
 			#uses the cashin function
 			if action == "cashin":
-				cashin(cursors,grandmas,farms,factories,mines,shipments,alchemy_labs,portals,time_machines,antimatter_condensers,prisms)
-				print "You have",cookies,"cookies"
+				self.cashin(self.cursors,self.grandmas,self.farms,self.factories,self.mines,self.shipments,self.alchemy_labs,self.portals,self.time_machines,self.antimatter_condensers,self.prisms)
+				print "You have",self.cookies,"cookies"
 			#Secret Dev only stuff
 			#if action == "devclick":
 			#   cookies += 100000000000
 			#Does a store like thing
 			if action == "buy":
 				#Auto cashin
-				cashin(cursors,grandmas,farms,factories,mines,shipments,alchemy_labs,portals,time_machines,antimatter_condensers,prisms)
+				self.cashin(self.cursors,self.grandmas,self.farms,self.factories,self.mines,self.shipments,self.alchemy_labs,self.portals,self.time_machines,self.antimatter_condensers,self.prisms)
 				#Store displaying unlocked buildings
-				print "\nYou have",cookies,"cookies\n"
+				print "\nYou have",self.cookies,"cookies\n"
 				print "Welcome to the store, here's a list of what you can buy, type exit to leave."
-				print "\nCursor: clicks a cookie every ten seconds,",cursorcost, "cookies"
-				if cursors > 0:
-					print"Grandma: A nice grandma to bake more cookies,",grandmacost,"cookies"
+				print "\nCursor: clicks a cookie every ten seconds,",self.cursorcost, "cookies"
+				if self.cursors > 0:
+					print"Grandma: A nice grandma to bake more cookies,",self.grandmacost,"cookies"
 					
-				if grandmas > 0:
-					print "Farm: Grows cookie plants from cookie seeds",farmcost,"cookies"
-				if farms > 0 :
-					print "Factory: Produces large quantities of cookies,",factorycost,"cookies"
-				if factories > 0:
-					print "Mine: Mines out cookie dough and chocolate chips,",minecost,"cookies"
-				if mines > 0:
-					print "Shipment: Brings fresh cookies from the cookie plantet,",shipmentcost,"cookies"
-				if shipments > 0:
-					print "Alchemy lab: Turns gold into cookies!",alchemycost,"cookies"
-				if alchemy_labs > 0:
-					print "Portal: Opens a door to the cookieverse,",portalcost,"cookies"
-				if portals > 0:
-					print "Time Machine: Brings cookies from the past, before they were even eaten,",timecost,"cookies"
-				if time_machines > 0:
-					print "Antimatter Condenser: Condenses the antimatter in the universe into cookies,",anticost,"cookies"
-				if antimatter_condensers >0 :
-					print "Prisms: Converts light itself into cookies,",prismcost,"cookies"
+				if self.grandmas > 0:
+					print "Farm: Grows cookie plants from cookie seeds",self.farmcost,"cookies"
+				if self.farms > 0 :
+					print "Factory: Produces large quantities of cookies,",self.factorycost,"cookies"
+				if self.factories > 0:
+					print "Mine: Mines out cookie dough and chocolate chips,",self.minecost,"cookies"
+				if self.mines > 0:
+					print "Shipment: Brings fresh cookies from the cookie plantet,",self.shipmentcost,"cookies"
+				if self.shipments > 0:
+					print "Alchemy lab: Turns gold into cookies!",self.alchemycost,"cookies"
+				if self.alchemy_labs > 0:
+					print "Portal: Opens a door to the cookieverse,",self.portalcost,"cookies"
+				if self.portals > 0:
+					print "Time Machine: Brings cookies from the past, before they were even eaten,",self.timecost,"cookies"
+				if self.time_machines > 0:
+					print "Antimatter Condenser: Condenses the antimatter in the universe into cookies,",self.anticost,"cookies"
+				if self.antimatter_condensers >0 :
+					print "Prisms: Converts light itself into cookies,",self.prismcost,"cookies"
 				print "\n"
 
 
@@ -1254,25 +1232,25 @@ class CookieCmd(cmdClass.DukeOSCmd):
 					print "Total prisms:",prisms
 				elif buyaction == "prisms" and cookies < prismcost:
 					print "Sorry you need",str(prismcost-cookies),"more"
-				starttime = time.clock()
+				self.starttime = time.clock()
 
 			#Upgrade store
 			if action=="upgrade":
 				#Auto cashin
-				cashin(cursors,grandmas,farms,factories,mines,shipments,alchemy_labs,portals,time_machines,antimatter_condensers,prisms)
-				print "\nYou have",cookies,"cookeies\n"
+				self.cashin(self.cursors,self.grandmas,self.farms,self.factories,self.mines,self.shipments,self.alchemy_labs,self.portals,self.time_machines,self.antimatter_condensers,self.prisms)
+				print "\nYou have",self.cookies,"cookeies\n"
 				print"Upgrades currently unlocked:\n"
 				#Displays currently unlocked upgrades
-				if Reinforced_Index_Finger == True:
+				if self.Reinforced_Index_Finger == True:
 					print "Reinforced Index Finger: The mouse gains +1 cookie per click, cursors gain 0.1 CPS, 100 cookies"
 					print "\"prod prod\"\n"
-				if Carpal_Tunnel == True:
+				if self.Carpal_Tunnel == True:
 					print "Carpal Tunnel Prevention Cream: The mouse and cursors are twice as efficent, 400 cookies"
 					print "\"it... it hurts to click...\"\n"
-				if ambidextrous == True:
+				if self.ambidextrous == True:
 					print "Ambidextrous: The mouse and cursors are twice as efficient, 10,000 cookies"
 					print "\"Look ma, both hands!\"\n"
-				if forwards == True:
+				if self.forwards == True:
 					print "\"RE:RE:thought you'd get a kick out of this ;))\"\nre"
 
 
@@ -1281,45 +1259,66 @@ class CookieCmd(cmdClass.DukeOSCmd):
 				#Upgrades use a true false method of determining ability to buy, then stores a one or a zero for the saving and loading function
 
 				#CURSOR
-				if upgradebuy =="reinforced index finger" and cookies>= 100 and Reinforced_Index_Finger == True:
+				if upgradebuy =="reinforced index finger" and self.cookies>= 100 and self.Reinforced_Index_Finger == True:
 					
-					cookies -= 100
-					Reinforced_Index_Finger= False
-					Is_Reinforced_Index_Finger= 1
+					self.cookies -= 100
+					self.Reinforced_Index_Finger= False
+					self.Is_Reinforced_Index_Finger= 1
 					print "UPGRADED!"
 				else:
 					print "Need",(100-cookies),"cookeies"
 
-				if upgradebuy =="carpal tunnel prevention cream" and cookies>= 400 and Carpal_Tunnel == True:
-					clickcps*=2
-					cursorcps*=2
-					cookies -= 400
-					Carpal_Tunnel= False
-					Is_Carpal_Tunnel = 1
+				if upgradebuy =="carpal tunnel prevention cream" and self.cookies>= 400 and self.Carpal_Tunnel == True:
+					self.clickcps*=2
+					self.cursorcps*=2
+					self.cookies -= 400
+					self.Carpal_Tunnel= False
+					self.Is_Carpal_Tunnel = 1
 					print "UPGRADED!"
 				else:
 					print "Need",(400-cookies),"cookeies"
 
-				if upgradebuy == "ambidextrous" and cookies>= 10000 and ambidextrous == True:
-					clickcps *=2
-					cursorcps *=2
-					cookies-= 10000
-					ambidextrous = False
-					Is_ambidextrous = 1
+				if upgradebuy == "ambidextrous" and self.cookies>= 10000 and self.ambidextrous == True:
+					self.clickcps *=2
+					self.cursorcps *=2
+					self.cookies-= 10000
+					self.ambidextrous = False
+					self.Is_ambidextrous = 1
 					print "UPGRADED!"
 				else:
-					print "Need",(10000-cookies),"cookeies"
+					print "Need",(10000-self.cookies),"cookeies"
 
 				#GRANDMA
-				if upgradebuy =="forwards from grandma" and cookies>= 1000 and forwards== True:
-					grandmacps += 0.3
-					cookies -= 1000
+				if upgradebuy =="forwards from grandma" and self.cookies>= 1000 and self.forwards== True:
+					self.grandmacps += 0.3
+					self.cookies -= 1000
 					print "UPGRADED!"
-					forwards = False
-					Is_forwards = 1
+					self.forwards = False
+					self.Is_forwards = 1
 				else:
-					print "Need",(1000-cookies),"cookeies"
+					print "Need",(1000-self.cookies),"cookeies"
 		return 0
+
+	#Cashin updates cookie amounts by time spent not cashing in
+	def cashin(self, cursors, grandmas, farms, factories, mines, shipments, alchemy_labs, portals, time_machines, antimatter_condnsers, prisms):
+		self.endtime = time.clock()
+		cookietime = self.endtime - self.starttime
+		print "Cookies Earned:",(cursors*self.cursorcps*self.cookietime)+(grandmas*self.grandmacps*self.cookietime)+(farms*self.farmcps*self.cookietime)+(factories*self.factorycps*self.cookietime)+(mines*self.minecps*self.cookietime)+(shipments*self.shipmentcps*self.cookietime)+(alchemy_labs*self.alchemycps*self.cookietime)+(portals*self.portalcps*self.cookietime)+(time_machines*self.timecps*self.cookietime)+(antimatter_condensers*self.anticps*self.cookietime)+(prisms*self.prismcps*self.cookietime)
+		self.cookies += (cursors*self.cursorcps*self.cookietime)+(grandmas*self.grandmacps*self.cookietime)+(farms*self.farmcps*self.cookietime)+(factories*self.factorycps*self.cookietime)+(mines*self.minecps*self.cookietime)+(shipments*self.shipmentcps*self.cookietime)+(alchemy_labs*self.alchemycps*self.cookietime)+(portals*self.portalcps*self.cookietime)+(time_machines*self.timecps*self.cookietime)+(antimatter_condensers*self.anticps*self.cookietime)+(prisms*self.prismcps*self.cookietime)
+		self.starttime = time.clock()
+
+	#The cookie clicker help menu
+	def menu(self):
+		print "\n\nWelcome to cookie clicker. Here's a list of commands"
+		print "click: gives you", self.clickcps, "cookie"
+		print "cashin: updates cookies"
+		print "buy: brings you to the store"
+		print "evaluate: let's you see your total building numbers, costs for buildings and cps for buildings"
+		print "stop the madness: stops the game"
+		print "upgrade: a different store for upgrades"
+		print "help: bring up this menu"
+		print "save: save the game"
+		print "load: load the game"
 
 
 class InfoCmd(cmdClass.DukeOSCmd):
