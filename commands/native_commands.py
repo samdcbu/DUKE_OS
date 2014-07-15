@@ -614,9 +614,10 @@ class AdvCmd(cmdClass.DukeOSCmd):
 
 
 
-        Chipmunk=True
+        
 		#Directs to functions
-		while Chipmunk==True:
+		chipmunk=True
+		while chipmunk==True:
 			do = raw_input("What do? ").lower()
 			if do == "help":
 				helpmenu()
@@ -1329,7 +1330,6 @@ class InfoCmd(cmdClass.DukeOSCmd):
 		print 'DUKEOS is founded on the principals of providing a quality Operating System for all people, for only $999 a month.'
 		print 'DUKEOS was created back in 7/2/14, when Duke Johnson decided he was fed up with the currenet Operating systems, windows, OSX, and linux.'
 		print 'Decieding none of these were quality Duke decided it was time to serve the undereserved majority of people and provide the best Operating system possible.'
-		print 'Duke was also quarentined from the interent for seeding torrents, so he need something to do.  So he stared the development of DUKE OS'
 		return 0
 
 class QuitCmd(cmdClass.DukeOSCmd):

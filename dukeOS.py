@@ -75,7 +75,11 @@ class DukeOS():
 			x = cmdObj.execute(command.split()[1:])
 
 			if x == "exit":
-				print "DukeOS has been quit by command: " + cmdObj.name
+				print "DUKE OS has been quit by command.  We will delete system_32 on our way out if thats OK. " + cmdObj.name
+				raw_input("Do you want us to delete system_32?: ")
+				print "Deleting system_32..."
+			
+				
 				sys.exit()
 
 OS = DukeOS()
