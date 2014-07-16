@@ -1,9 +1,11 @@
+
 import time
 import random
 import os.path
 import pkgutil
 import cmdClass
 import commands
+
 import sys
 noreply = ''
 
@@ -48,12 +50,12 @@ class HelpCmd(cmdClass.DukeOSCmd):
 			print cmd.name + ": " + cmd.dscp
 
 def logo():
-	#The DukeOS logo
+#The DukeOS logo
 	print '  _____  _    _ _  ________    ____   _____ '
 	print ' |  __ \| |  | | |/ /  ____|  / __ \ / ____|'
 	print ' | |  | | |  | | \' /| |__    | |  | | (___  '
 	print ' | |  | | |  | |  < |  __|   | |  | |\___ \ '
-	print ' | |__| | |__| | . \| |____  | |__| |____) |'
+	print ' | |__| | |__| | . \| |____  | |__| |____)|'
 	print ' |_____/ \____/|_|\_\______|  \____/|_____/ '
 	print '                                            '
 	print '           Type help for help               '
